@@ -1,3 +1,6 @@
+// Load environment variables from .env file
+require('dotenv').config();
+
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
@@ -7,10 +10,10 @@ const connectDB = async () => {
       useUnifiedTopology: true,
     });
 
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
-    console.error('Database connection error:', error);
-    process.exit(1);
+    console.error('❌ Database connection error:', error.message);
+    process.exit(1); // Exit process with failure
   }
 };
 
